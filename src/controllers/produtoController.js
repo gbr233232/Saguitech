@@ -1,8 +1,6 @@
 // produtoController.js
 const Produto = require('../models/ProdutoModel');
 
-// produtoController.js
-// produtoController.js
 exports.index = async (req, res) => {
   try {
     const produtos = await Produto.buscaProdutos();
