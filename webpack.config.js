@@ -1,10 +1,10 @@
-const path = require('path'); // Importação do módulo 'path'
+const path = require('path'); 
 
 module.exports = {
-  entry: './src/index.js',  // Arquivo de entrada
+  entry: './src/views/index.js',  
   output: {
-    filename: 'bundle.js',  // Nome do arquivo gerado
-    path: path.resolve(__dirname, 'dist')  // Diretório de saída
+    filename: 'bundle.js', 
+    path: path.resolve(__dirname, 'dist')  
   },
   module: {
     rules: [
