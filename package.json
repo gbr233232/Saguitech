@@ -2,11 +2,11 @@
   "name": "sarguitech",
   "version": "1.0.0",
   "main": "server.js",
-  "scripts": {
-    "start": "nodemon server.js",
-    "build": "echo 'No build step needed' && exit 0"
-  
-  },
+"scripts": {
+  "start": "nodemon server.js",
+  "build": "webpack --config webpack.config.js"
+},
+
   "keywords": [],
   "author": "",
   "license": "ISC",
