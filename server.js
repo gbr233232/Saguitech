@@ -28,7 +28,7 @@ app.use(express.json());
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
-app.use('/frontend', express.static(path.join(__dirname, 'frontend')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(routes)
 app.listen(port, () =>{
     console.log(`Servidor rodando na porta ${port}`)
