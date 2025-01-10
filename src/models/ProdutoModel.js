@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const ProdutoSchema = new mongoose.Schema({
   produto: { type: String, required: true },
-  valor: { type: Number, required: true, min: 0 } // Garantir que o valor seja maior que 0
+  valor: { type: Number, required: true, min: 0 } 
 });
 
 const ProdutoModel = mongoose.model('Produto', ProdutoSchema);
@@ -14,7 +14,7 @@ function Produto(body) {
 }
 
 Produto.prototype.register = async function () {
-  // Validação extra no register (se necessário)
+
   if (!this.body.produto || !this.body.valor) {
     throw new Error('Produto e valor são obrigatórios');
   }

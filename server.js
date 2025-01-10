@@ -9,7 +9,7 @@ const path = require('path')
 const port = process.env.PORT||3006
 const routes = require('./routes')
 
-//connectDB
+
 async function connectDB() {
     try{
         await mongoose.connect(process.env.CONNECTIONSTRING)

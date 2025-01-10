@@ -1,4 +1,4 @@
-// produtoController.js
+
 const Produto = require('../models/ProdutoModel');
 
 exports.index = async (req, res) => {
@@ -6,20 +6,20 @@ exports.index = async (req, res) => {
     const produtos = await Produto.buscaProdutos();
     const notaFiscal = null;
     
-    // Caso haja algum erro para exibir
-    const error = req.query.error || null; // Passando error via query
+
+    const error = req.query.error || null; 
 
     res.render('index', { produtos, notaFiscal, error });
   } catch (error) {
     console.error('Erro no controlador index:', error);
-    res.status(500).render('index', { error: 'Erro interno no servidor' }); // Passando erro diretamente
+    res.status(500).render('index', { error: 'Erro interno no servidor' }); 
   }
 };
 
 
 exports.register = async (req, res) => {
   try {
-    // Validação dos dados de entrada
+
     if (!req.body.produto || !req.body.valor) {
       throw new Error('Produto e valor são obrigatórios');
     }
@@ -29,7 +29,7 @@ exports.register = async (req, res) => {
     res.redirect('/');
   } catch (error) {
     console.error('Erro ao registrar produto:', error);
-    res.status(400).render('404');  // Alterado para status 400
+    res.status(400).render('404');  
   }
 };
 
@@ -37,13 +37,13 @@ exports.gerarNotaFiscal = (req, res) => {
   try {
     const { destinatario, endereco, valorVenda, irpf, pis, cofins, inss, issqn } = req.body;
 
-    // Validações de tipo para garantir que os valores sejam números
+
     const valorVendaNumber = parseFloat(valorVenda);
     if (isNaN(valorVendaNumber) || valorVendaNumber <= 0) {
       throw new Error('Valor da venda inválido');
     }
 
-    // Garantir que os impostos sejam números válidos
+
     const impostos = {
       irpf: parseFloat((valorVendaNumber * (irpf / 100)).toFixed(2)),
       pis: parseFloat((valorVendaNumber * (pis / 100)).toFixed(2)),
